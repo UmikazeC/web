@@ -1,0 +1,378 @@
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="FMT_styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <nav id="navbar">
+      <header>UAV logistics system</header>
+      <ul>
+        <li>
+          <a class="nav-link" href="#Announcement">Announcement</a>
+        </li>
+        <li>
+            <a class="nav-link" href="#Abstract">Abstract</a>
+        </li>
+        <li>
+            <a class="nav-link" href="#Keywords">Keywords</a>
+        </li>
+        <li>
+            <a class="nav-link" href="#Introduction">Introduction</a>
+        </li>
+        <li>
+            <a class="nav-link" href="#Analysis of previous studies">Analysis of previous studies</a>
+        </li>
+        <li>
+            <a class="nav-link" href="#Experiments and Applications">Experiments and Applications</a>
+        </li>
+        <li>
+          <a class="nav-link" href="#Path planning algorithms">Path planning algorithms</a>
+        </li>
+        <li>
+          <a class="nav-link" href="#System design">System design</a>
+        </li>
+        <li>
+            <a class="nav-link" href="#Feasibility evaluation">Feasibility evaluation</a>
+        </li>
+        <li>
+            <a class="nav-link" href="#Conclusion">Conclusion</a>
+        </li>
+        <li>
+          <a class="nav-link" href="#Reference">Reference</a>
+        </li>
+      </ul>
+    </nav>
+    <main id="main-doc">
+      <section class="main-section" id="Announcement">
+        <header>Announcement</header>
+        <article>
+          <p>
+            This paper is written by Sirui Chen in May 2022, which is a review paper of my Electronic Engeneering research project named "UAV autonomous logistics network".
+          </p>
+        </article>
+      </section>
+        <section class="main-section" id="Abstract">
+            <header>Abstract</header>
+            <article>
+              <p>
+                UAV logistics system is a promising research direction.
+                The fast and flexible features allow drones to travel through urban areas and deliver goods quickly.
+                But successful application of UAV logistics is still not realized.
+                In this paper,
+                design and feasibility exploration of UAV logistics are presented based on analyses of key technologies.
+                The findings of this paper provide inspirations as well as theoretical supports for designs and applications of UAV logistics in the future.
+              </p>
+            </article>
+          </section>
+          <section class="main-section" id="Keywords">
+            <header>Keywords</header>
+            <article>
+              <p>
+                unmanned aerial vehicle; logistics system; automatic driving; machine learning.
+              </p>
+            </article>
+          </section>
+      <section class="main-section" id="Introduction">
+        <header>Introduction</header>
+        <article>
+          <p>
+            Unmanned aerial vehicle (UAV) is a kind of light aircraft that has significant flexibility at only low cost. With the development of science and technology, we have witnessed the popularity and usage of UAVs in a wide range of fields. From military, aerial to agriculture and industry, UAVs have already integrated into our life. In recent years, the application of UAVs in the field of logistics is concerned.
+          </p>
+
+          <p>
+            Urban terminal logistics distribution is mainly concentrated on the ground, leading to increasing air pollution and traffic congestion. The time-effective terminal logistics such as the rise in the treated industry requires a lot of manpower and material, and deliveryman shuttled in the traffic also increased the risk. At the same time, the rapid spread of Covid-19 posts a tricky problem on urban logistics in sealed areas. However, the UAV logistic system provides a solution that is rapid, safe, accurate and environment friendly while reducing face to face contact. Therefore, the UAV logistic system has a promising future.
+          </p>
+          <p>
+            The main challenge of the logistic system are multi-subject route planning algorithms and the landing procedure. Many studies focused on route planning of a single aircraft [1]. Recently, there seems to be increasing interests in the study of controlling multiple UAVs. Researchers in Nanjing University proposed an air route network planning algorithm for logistics UAVs in urban low altitude environment. Computational simulation results show that the model is an efficient path planning algorithm [2]. Auto landing methods have been actively studied. UAVs landing themselves with different load is feasible [3], and precise landing without satellite positioning (GNSS) has also been implemented [4]. These studies are instructive for the realization of the logistic system.
+          </p>
+          <p>
+            However, applying UAVs to such fields brings a challenge that requires both the platform and the algorithm to be reliable to face the threats during the flight. The system must deal with complicated environment such as high-rise buildings and 3-dimentional transportation network. There are many studies focus on UAV control system and different kinds of algorithms. But few papers point to the feasibility and scheme demonstration of UAV logistics system.
+          </p>
+          <p>
+            The aim of the paper is to explore the feasibility of urban UAV logistic system. A comparison of different route planning algorithms and the best solution is presented, at the same time a system frame work is designed, and finally its feasibility will be evaluated.
+          </p>
+        </article>
+      </section>
+      <section class="main-section" id="Analysis of previous studies">
+        <header>Analysis of previous studies</header>
+        <article>
+          <p>The UAV logistic system is a comprehensive engineering problem. Main technical issues and literature review of the system is based on 3 sections: UAV swarms, Path planning algorithms and the auto landing procedure.</p>
+
+          <ul>
+            <li>
+                UAV swarms:
+                <P>
+                    The logistic system involves many UAVs to work together under the same network. UAV swarms is solution to such applications. UAV swarm technology is an important research direction in the field of UAVs in recent years. As early as 2001, the research team of the University of Berkeley began to study the control theory of drone swarms [5]. In 2008, the University of Pennsylvania realized the indoor cluster flight of 16 drones which can change the team shape, autonomously avoid obstacles and plan routes. In 2016, more mature and reliable autonomous drone swarms appeared through artificial intelligence technology and sensors [6]. In April 2016, the first indoor large-scale drone performance in China was realized by Zerotech [7], marking that the drone swarm gradually entered the public eye and began to enter the civilian field on a large scale.
+                </P>
+            </li>
+            <li>
+                Path planning
+                <p>
+                    During the flight, each drone must follow the path to the user while both avoiding collision and taking a detour. Complicated environment such as high-rise buildings post challenges on the path planning algorithms.
+                </p>
+                <p>
+                    At present, the research of UAV path planning algorithm has been extensive. On the premise of ensuring security, the improved A* algorithm and DWA algorithm researched by Xiong Bai et al. have operational efficiency and shorter path lengths [10]. In 2020, Zhejiang University's FAST-lab laboratory realized the distributed formation algorithm of UAV swarms in dense environments. In a complex jungle environment, a formation composed of a large number of micro-UAVs can quickly passthrough obstacles and maintain the formation. This important achievement was reported by Science [11,12]. 
+                </p>
+            </li>
+            <li>
+                Auto landing
+                <p>
+                    After approaching the destination, the UAV has to automatically land itself to a specified plot. It has been more than ten years since the birth of the technology of autonomous drone landing on a mobile platform, but its realization is still in its infancy and cannot be widely promoted. This is because the landing process of the UAV is complex and susceptible to interference, which requires high reliability of the sensors and data processing models. In foreign countries, many teams have carried out research on improving the controllability of UAV landing. Most of the work only uses the traditional PID control algorithm in the control algorithm, and can successfully use the required information to control the UAV landing to a specific platform. For example, according to the problem of small and medium-sized ground mobile platforms, Karl E. Wenzel helps UAVs identify moving landing platforms by setting components that emit characteristic light on the mobile platform [13]. Drones are able to track a moving platform at an even speed and automatically land on the moving platform.
+                </p>
+                <p>
+                    In addition to using the classic PID control algorithm to control the precise landing of UAVs, other related researches focus on fuzzy control [14] by using visual positioning to achieve autonomous and precise landing of UAVs. The fuzzy control algorithm can be roughly divided into four steps: fuzzy input, construct membership function, fuzzy rule construction and defuzzification.
+                </p>
+            </li>
+          </ul>
+        </article>
+      </section>
+      <section class="main-section" id="Experiments and Applications">
+        <header>Experiments and Applications</header>
+        <article>
+          <p>
+            Wing, a company owned by Google in the United States, has made drone deliveries legal for commercial use. With the development of the drone delivery business, Wing said that it will take many years to achieve the delivery of daily goods on a global scale, but the project seems to have a bright future [15].
+          </p>
+
+          <p>
+            Amazon Prime Air is also testing logistic UAVs [16]. It is reported that the drawbacks of high cost, insufficient efficiency and safety issues still exist and need to be solved in future technical optimization.
+          </p>
+          <p>
+            In contrast, implementing drone deliveries in Chinese cities has some challenges. The United States and Australia are vast and sparsely populated, and drones can be directly landed in the user's front yard. However, the first-tier cities in China are densely populated, and the infrastructure such as take-out distribution and express logistics are perfect. The current logistics cost is already very low, and the new logistics needs to strive to reduce the cost to be sufficiently competitive. And because of the dense population and roads, safety concerns will also be a hindrance. No research gave a clear review on these problems.
+          </p>
+        </article>
+      </section>
+      <section class="main-section" id="Path planning algorithms">
+        <header>Comparison and analysis of path planning algorithms</header>
+        <article>
+          <p>
+            In this section, 3 common algorithm of UAV route planning will be compared between each other based on time complexity (which represents the speed decrease rate of this algorithm when the scale of the problem increased) [20], quality of the results and space complexity (memory occupied by the algorithm) [21].
+          </p>
+          <ul>
+            <li>
+                A* algorithm
+                <P>
+                    The A* algorithm was originally published in 1968 by Peter Hart, Nils Nilsson, and Bertram Raphael of Stanford Research Institute [18]. It was considered as an extension of Dijkstra's algorithm [19]. In a typical A* algorithm, the priority of each node is calculated by the following function:
+                </P>
+                <code>F(n)=g(n)+h(n)</code>
+                <p>
+                    1.f(n) is the composite priority of node N. When we choose the next node to traverse, we always choose the node with the highest overall priority (minimum value)
+                </p>
+                <p>
+                    2. g(n) is the cost of node N's distance from the start point.
+                </p>
+                <p>
+                    3. h(n) is the estimated cost of node N from the end point, which is the heuristic function of the A* algorithm.
+                </p>
+                <p>
+                    Time complexity: The A* algorithm requires calculation of all related N nodes function. In 3-dimensional space, the amount of calculation is proportional to the volume of space. Therefore, time complexity of the A* algorithm is O(3n^3).
+                </p>
+                <p>
+                    Quality of the results: The A* algorithm is efficient when dealing with shortest route problem with few and simple obstacles and the optimal result can be achieved. A* algorithm is not suitable for large scale problems with many obstacles.
+                </p>
+                <p>
+                    Space complexity: light
+                </p>
+            </li>
+            <li>
+                Ant Colony
+                <p>
+                    Ant Colony algorithm is a bionic algorithm obtained by simulating the path-finding method of ants in nature: In the process of movement, ants can leave pheromone substances on the path they pass for information transmission, and Ants can sense this substance during movement and use it to guide their movement direction [22].
+                </p>
+                <p>
+                    Time complexity: According to the C program that I wrote to solve the Traveling-Salesman Problem [23], the time complexity is less than O(n^3) depends on the precision requirement of the result.
+                </p>
+                <p>
+                    Quality of the results: Based on the precision requirement.
+                </p>
+                <p>
+                    Space complexity: medium
+                </p>
+            </li>
+            <li>
+                Machine Learning
+                <p>
+                    The machine learning algorithm builds a neural network model. After the training of the model, UAVs have the ability to learn autonomously in the process of pathfinding, and can actively avoid obstacles and plan the optimal path like a human.
+                </p>
+                <p>
+                    Time complexity: A well developed model has an extremely low time complexity.
+                </p>
+                <p>
+                    Quality of the results: Very high
+                </p>
+                <p>
+                    Space complexity: High (Small-scale models also require large amounts of data)
+                </p>        
+          </ul>
+          <p>
+            Ant Colony is the moderate solution for most route planning cases. However, the Machine Learning method shows its advantage when the scale of the problem rises (because of its low time complexity). Better drone machine learning algorithms are the future of UAV logistics.
+          </p>
+        </article>
+      </section>
+      <section class="main-section" id="System design">
+        <header>System design</header>
+        <article>
+          <p>
+            Based on the discussion above, the following table presents an overall design proposal of the UAV logistic system in Urban area. Moreover, the feasibility of each link has been assessed.
+          </p>
+          <table>
+            <tr>
+              <th>Project name</th>
+              <th>Corresponding design</th>
+            </tr>
+            <tr>
+              <td>UAV platform</td>
+              <td>X8* multi-rotor UAV with 680mm wheelbase </td>
+            </tr>
+            <tr>
+              
+              <td>Route planning algorithm</td>
+              <td>Machine Learning</td>
+
+            </tr>
+            <tr>
+              <td>Auto landing /takeoff and charging</td>
+              <td>Set up take-off and landing platforms. Several special platform also provides power supply</td>
+              
+            </tr>
+            <tr>
+              <td>App and system networks</td>
+              <td>Takeaway delivery model</td>
+            </tr>
+          </table>
+          <p>
+            * X8 is a structure of multi-rotor UAV. X8 UAV has 2 motors on the same axis.
+          </p>
+        </article>
+      </section>
+      <section class="main-section" id="Feasibility evaluation">
+        <header>Feasibility evaluation</header>
+        <article>
+          <table>
+            <tr>
+              <th>Project name</th>
+              <th>Feasibility evaluation</th>
+            </tr>
+            <tr>
+              <td>UAV platform</td>
+              <td>X8 structure provide power redundancy: The UAV can still hover when a single motor fails.</td>
+            </tr>
+            <tr>
+              
+              <td>Route planning algorithm</td>
+              <td>It is proved that Machine Learning is better than the A* and Ant Colony.</td>
+
+            </tr>
+            <tr>
+              <td>Auto landing /takeoff and charging</td>
+              <td>In May 2022, DJI has launched M30T UAV airport platform [24], which meet the needs. 
+                However, the costs of setting up such a platform is high [25]. Technological progress and mass production may help cutting the costs.
+                </td>
+              
+            </tr>
+            <tr>
+              <td>App and system networks</td>
+              <td>After users confirm their orders, system will assign orders to the nearest UAV. UAV logistic system works like the takeaway platform, while the deliveryman is replaced by drones.</td>
+            </tr>
+          </table>
+        </article>
+
+      </section>
+      <section class="main-section" id="Conclusion">
+        <header>Conclusion</header>
+        <article>
+          <p>
+            UAV logistics is a field with promising future but still in its infancy. The paper introduces and analyses key technologies of UAV logistics. I found that Machine Learning is the better algorithm for path planning in UAV logistics. A feasible design is also presented, providing an inspiration for the design of future UAV logistics system. Findings and designs of this paper provides theoretical support for the application of UAV logistics in the future, and can be used as a reference for actual system design.
+          </p>
+          <p>
+            However, the design and feasibility exploration have some limitations, i.e. How to assess and simulate the reliability and accident rate of unmanned aerial vehicles in complex urban environments? Currently, costs of the system have no advantage over traditional delivery service. Computer simulation and actual environmental testing help to solve reliability problems, and the cost of the system is supposed to be greatly reduced after mature and large-scale application. I have applied the research of UAV logistics as FDUROP’s project, future exploration and experiment of the system is planned. Future work will involve further studies of the algorithms and hardware designs, thus framing up a promising image of convenient and safe UAV logistics.
+          </p>
+        </article>
+      </section>
+     
+      <section class="main-section" id="Reference">
+        <header>Reference</header>
+        <article>
+          <ul>
+            <li>
+                [1] J. Nikolic, M. Burri, J. Rehder, S. Leutenegger, C. Huerzeler, R. Siegwart, A UAV system for inspection of industrial facilities, IEEE Aerosp. Conf. Proc. (2013) 1–8, http://dx.doi.org/10.1109/AERO.2013.6496959.
+            </li>
+            <li>
+                [2] S   Zhang, HH   Li, ZL   Liu, HAF Li, Shan   Zhang, Honghai   Li, Zhuolun   Liu, HaoTI An Air Route Network Planning Model of Logistics UAV Terminal Distribution in Urban Low Altitude Airspace (2021)
+            </li>
+            <li>
+                [3] Lungu, MH: Auto-landing of UAVs with variable center of mass using the backstepping and dynamic inversion control (2020.8)
+            </li>
+            <li>
+                [4] Chen, Chengbin; Chen, Sifan; Hu, Guangsheng; Chen, Baihe; Chen, Pingping; Su, Kaixiong: An auto-landing strategy based on pan-tilt based visual servoing for unmanned aerial vehicle in GNSS-denied environments (2021.9)
+            </li>
+            <li>
+                [5] Koo, TJ (Koo, TJ) ; Shahruz, SM (Shahruz, SM)Formation of a group of unmanned aerial vehicles (UAVs)
+            </li>
+            <li>
+                [6]KOWNICKAC Multi-UAV flight using virtual structure combined with behavioral approach[J]．Acta Mechanic et Automatic, 2016
+            </li>
+            <li>
+                [7] 赵爽、史雅乔 中国首次室内大型无人机编队飞行表演，人民网2016.4.29 http://energy.people.com.cn/n1/2016/0429/c71661-28315832.html
+
+            </li>
+            <li>
+                [8]Interact Analysis-A new version of Intelligent Automation, Available: https:// www.interactanalysis.com/drones-market-2022-predictions/.
+            </li>
+            <li>
+                [9] Danancier, K Ruvio, D Sung, N Iielsen, P Comparison of Path Planning Algorithms for an Unmanned Aerial Vehicle Deployment Under Threats, 2019.8
+            </li>
+            <li>
+                [10]Xiong Bai, Haikun Jiang Junjie Cui, Kuan Lu, Pengyun Chen, and Ming Zhang UAV Path Planning Based on Improved A and DWA Algorithms, 2021
+            </li>
+            <li>
+                [11] Lun Quan, Longji Yin, Chao Xu, Fei Gao Distributed Swarm Trajectory Optimization for Formation Flight in Dense Environments, 2020
+            </li>
+            <li>
+                [12] http://zju-fast.com/our-recent-work-ego-swarm-is-reported-by-science/
+            </li>
+            <li>
+                [14] 魏超友.无人机的移动降落[D].广州: 广东工业大学.2021
+            </li>
+            <li>
+                [15] https://www.airforce-technology.com/projects/wing-loong-unmanned-aerial-vehicle-uav/ 
+            </li>
+            <li>
+                [16] Sunghun, Jung; hyunsu, kim Analysis of Amazon Prime Air UAV Delivery Service, 2017 Journal of Knowledge Information Technology and System
+            </li>
+            <li>
+                [17] https://assets2.rappler.com/images/amazon-prime-air-pr-640.jpg
+            </li>
+            <li>
+                [18]Zhang Jing,Liu Zengyuan,Wang Yi,Zhang Fan,Li Yunsong. Research on Effective Path Planning Algorithm Based on Improved A* Algorithm[J]. Journal of Physics: Conference Series,2022,2188(1).
+            </li>
+            <li>
+                [19] Abhishek Goyal,Prateek Mogha,Rishabh Luthra,Neeti Sangwan. Path finding: A* or Dijkstra's?[J]. International Journal in IT & Engineering,2014,2(1).
+            </li>
+            <li>
+                [20] Why is Time Complexity Essential and What is Time Complexity? https://www.mygreatlearning.com/blog/why-is-time-complexity-essential/
+            </li>
+            <li>
+                [21] https://www.tutorialspoint.com/What-is-Space-Complexity
+            </li>
+            <li>
+                [22] Stodola Petr,Otřísal Pavel,Hasilová Kamila. Adaptive Ant Colony Optimization with Node Clustering applied to the Travelling Salesman Problem[J]. Swarm and Evolutionary Computation,2022(prepublish).
+            </li>
+            <li>
+                [23] Merrill M. Flood. The Traveling-Salesman Problem[J]. Operations Research,1956,4(1).
+            </li>
+            <li>
+                [24] https://www.dji.com/cn/matrice-30
+            </li>
+            <li>
+                [25] https://www.dji.com/cn/dock
+            </li>
+          </ul>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
